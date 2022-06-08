@@ -25,11 +25,24 @@ describe('Set Content', () => {
     kinopoisk._setName(' empty ');
     expect(kinopoisk._content.name).toEqual('empty');
   });
+  test('_setYear', () => {
+    kinopoisk._setYear(1942);
+    expect(kinopoisk._content.name).toEqual(1942);
+    kinopoisk._setYear('2005');
+    expect(kinopoisk._content.name).toEqual(2005);
+    kinopoisk._setYear(' 2010 ');
+    expect(kinopoisk._content.name).toEqual(2010);
+  });
 });
 
 describe('Validation Failed:', () => {
-  test('_getName validate failed', () => {
+  test('_setName validate failed', () => {
     expect(() => { kinopoisk._setName(''); }).toThrow();
     expect(() => { kinopoisk._setName([]); }).toThrow();
+  });
+  test('_setYear validate failed', () => {
+    expect(() => {kinopoisk._setYear('')}).toThrow();
+    expect(() => {kinopoisk._setYear(2031)}).toThrow();
+    expect(() => {kinopoisk._setYear(1262)}).toThrow();
   });
 });
