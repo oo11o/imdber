@@ -1,0 +1,37 @@
+{
+  "name": "kinopoisk",
+  "version": "1.0.0",
+  "description": "Parse movie from kinopoisk",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oo11o/kinopoisk.git"
+  },
+  "keywords": [
+    "parse",
+    "kinopoisk",
+    "webscraping",
+    "movies"
+  ],
+  "author": "Vlad Imir",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/oo11o/kinopoisk/issues"
+  },
+  "homepage": "https://github.com/oo11o/kinopoisk#readme",
+  "devDependencies": {
+    "eslint": "^8.16.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "jest": "^28.1.0"
+  },
+  "dependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.18.2",
+    "axios": "^0.27.2",
+    "yup": "^0.32.11"
+  }
+}
