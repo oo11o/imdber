@@ -41,8 +41,8 @@ describe('Validation Failed:', () => {
     expect(() => { kinopoisk._setName([]); }).toThrow();
   });
   test('_setYear validate failed', () => {
-    expect(() => {kinopoisk._setYear('')}).toThrow();
-    expect(() => {kinopoisk._setYear(2031)}).toThrow();
-    expect(() => {kinopoisk._setYear(1262)}).toThrow();
+    expect(() => { kinopoisk._setYear(''); }).toThrow();
+    expect(() => { kinopoisk._setYear(2031); }).toThrow();
+    expect(() => { kinopoisk._setYear(1262); }).toThrow();
   });
 });
