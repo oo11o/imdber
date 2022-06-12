@@ -17,7 +17,11 @@ class Kinopoisk {
   }
 
   getName() {
-    return this._content.name
+    return this._content.name;
+  }
+
+  getYear() {
+    return this._content.year;
   }
 
   static validation(key, content) {
