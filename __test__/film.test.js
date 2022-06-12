@@ -24,6 +24,14 @@ describe('Set Content', () => {
   });
 });
 
+describe('Get Content', ()=> {
+  test('return name of film', () => {
+    kinopoisk._setName('Terminator')
+    expect(kinopoisk.getName()).toEqual('Terminator');
+    kinopoisk._setName('Please Don\'t Eat My Mother ++++ !');
+    expect(kinopoisk.getName()).toEqual('Please Don\'t Eat My Mother ++++ !');
+  });
+});
 
 describe('Validation Failed:', () => {
   test('_setName validate failed', () => {
