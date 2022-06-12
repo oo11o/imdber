@@ -1,22 +1,12 @@
 // import fs from 'fs';
 import Kinopoisk from '../src/Kinopoisk';
 
-const kinopoisk = new Kinopoisk();
-// const film = {
-//   name: 'Joker',
-//
-// };
+let kinopoisk;
 
-// test('robot reconnect', () => {
-//     //const robotHtml = fs.readFile('robot.html');
-// });
-//
-//
-// describe('get Content', () => {
-//     test('get name', () => {
-//         film.get
-//     })
-// });
+beforeEach(()=>{
+  kinopoisk = new Kinopoisk();
+})
+
 
 describe('Set Content', () => {
   test('_setName', () => {
@@ -25,15 +15,15 @@ describe('Set Content', () => {
     kinopoisk._setName(' empty ');
     expect(kinopoisk._content.name).toEqual('empty');
   });
+
   test('_setYear', () => {
     kinopoisk._setYear(1942);
     expect(kinopoisk._content.name).toEqual(1942);
     kinopoisk._setYear('2005');
     expect(kinopoisk._content.name).toEqual(2005);
-    kinopoisk._setYear(' 2010 ');
-    expect(kinopoisk._content.name).toEqual(2010);
   });
 });
+
 
 describe('Validation Failed:', () => {
   test('_setName validate failed', () => {
@@ -46,3 +36,4 @@ describe('Validation Failed:', () => {
     expect(() => { kinopoisk._setYear(1262); }).toThrow();
   });
 });
+
