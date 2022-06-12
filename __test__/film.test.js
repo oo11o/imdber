@@ -18,9 +18,9 @@ describe('Set Content', () => {
 
   test('_setYear', () => {
     kinopoisk._setYear(1942);
-    expect(kinopoisk._content.name).toEqual(1942);
+    expect(kinopoisk._content.year).toEqual(1942);
     kinopoisk._setYear('2005');
-    expect(kinopoisk._content.name).toEqual(2005);
+    expect(kinopoisk._content.year).toEqual(2005);
   });
 });
 
@@ -30,6 +30,10 @@ describe('Get Content', ()=> {
     expect(kinopoisk.getName()).toEqual('Terminator');
     kinopoisk._setName('Please Don\'t Eat My Mother ++++ !');
     expect(kinopoisk.getName()).toEqual('Please Don\'t Eat My Mother ++++ !');
+  });
+  test('return year of film', () => {
+    kinopoisk._setYear(2010)
+    expect(kinopoisk.getYear()).toEqual(2010);
   });
 });
 
