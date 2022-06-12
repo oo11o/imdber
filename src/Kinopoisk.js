@@ -13,7 +13,7 @@ class Kinopoisk {
   }
 
   _setYear(content) {
-    this._content.name = Kinopoisk.validation('year', content);
+    this._content.year = Kinopoisk.validation('year', content);
   }
 
   getName() {
