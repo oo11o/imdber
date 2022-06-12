@@ -16,6 +16,10 @@ class Kinopoisk {
     this._content.name = Kinopoisk.validation('year', content);
   }
 
+  getName() {
+    return this._content.name
+  }
+
   static validation(key, content) {
     const schema = {
       name: yup.string().min(1).max(300),
