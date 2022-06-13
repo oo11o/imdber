@@ -22,10 +22,16 @@ describe('Set Content', () => {
     expect(kinopoisk._content.year).toEqual(2005);
   });
 
-  test('_setCountries', ()=>{
+  test('_setCountries', () => {
     kinopoisk._setCountries(['poland', 'ukraine']);
     expect(kinopoisk._content.countries).toEqual(['poland', 'ukraine']);
   })
+
+  test('_setGenres', () => {
+    kinopoisk._setGenres(['drama', 'comedian']);
+    expect(kinopoisk._content.genres).toEqual(['drama', 'comedian']);
+  })
+
 });
 
 describe('Get Content', ()=> {
@@ -46,6 +52,7 @@ describe('Validation Failed:', () => {
     expect(() => { kinopoisk._setName(''); }).toThrow();
     expect(() => { kinopoisk._setName([]); }).toThrow();
   });
+
   test('_setYear validate failed', () => {
     expect(() => { kinopoisk._setYear(''); }).toThrow();
     expect(() => { kinopoisk._setYear(2031); }).toThrow();
@@ -54,6 +61,10 @@ describe('Validation Failed:', () => {
 
   test('_setCountries validate failed', ()=> {
     expect(() => { kinopoisk._setCountries('')}).toThrow();
+  })
+
+  test('_setGenres validate failed', ()=> {
+    expect(() => { kinopoisk._setGenres('')}).toThrow();
   })
 });
 
