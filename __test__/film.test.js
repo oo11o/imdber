@@ -7,7 +7,6 @@ beforeEach(()=>{
   kinopoisk = new Kinopoisk();
 })
 
-
 describe('Set Content', () => {
   test('_setName', () => {
     kinopoisk._setName('Очевидно');
@@ -22,6 +21,11 @@ describe('Set Content', () => {
     kinopoisk._setYear('2005');
     expect(kinopoisk._content.year).toEqual(2005);
   });
+
+  test('_setCountries', ()=>{
+    kinopoisk._setCountries(['poland', 'ukraine']);
+    expect(kinopoisk._content.countries).toEqual(['poland', 'ukraine']);
+  })
 });
 
 describe('Get Content', ()=> {
@@ -47,6 +51,10 @@ describe('Validation Failed:', () => {
     expect(() => { kinopoisk._setYear(2031); }).toThrow();
     expect(() => { kinopoisk._setYear(1262); }).toThrow();
   });
+
+  test('_setCountries validate failed', ()=> {
+    expect(() => { kinopoisk._setCountries('')}).toThrow();
+  })
 });
 
 
