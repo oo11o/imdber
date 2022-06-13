@@ -1,11 +1,11 @@
 import * as yup from 'yup';
+import { JSDOM } from 'jsdom';
+
+import Parser from "./parser.js";
 
 class Kinopoisk {
   constructor() {
-    this._content = {
-      name: '',
-      year: '',
-    };
+    this._content = {}
   }
 
   _setName(content) {
@@ -24,6 +24,20 @@ class Kinopoisk {
     return this._content.year;
   }
 
+  _parse(html){
+    const dom = new JSDOM(html);
+    const scrapData = dom.window.document
+        ?.getElementById("__next")
+        ?.querySelector('script')
+        .innerHTML;
+    if(scrapData === undefined) {
+        return false;
+    }
+    const movie = JSON.parse(scrapData);
+    this._setName(movie.name);
+    this._setYear(movie.datePublished);
+  }
+
   static validation(key, content) {
     const schema = {
       name: yup.string().min(1).max(300),
@@ -35,6 +49,7 @@ class Kinopoisk {
       throw new Error(`Validation failed: ${e.message}`);
     }
   }
+
 }
 
 export default Kinopoisk;
