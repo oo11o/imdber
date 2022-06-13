@@ -1,4 +1,4 @@
-// import fs from 'fs';
+import fs from 'fs/promises';
 import Kinopoisk from '../src/Kinopoisk';
 
 let kinopoisk;
@@ -49,3 +49,12 @@ describe('Validation Failed:', () => {
   });
 });
 
+
+describe('Parse data:', () => {
+  test('_parse methods transfer data', async () => {
+    const html = await fs.readFile(`${__dirname}/__fixtures__/film.html`, 'utf-8');
+    kinopoisk._parse(html);
+    expect(kinopoisk.getName()).toEqual('Джокер');
+    expect(kinopoisk.getYear()).toEqual(2019);
+  })
+});
