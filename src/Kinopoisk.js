@@ -24,6 +24,10 @@ class Kinopoisk {
     this._content.genres = Kinopoisk.validation('genres', content);
   }
 
+  _setDescription(content) {
+    this._content.description = Kinopoisk.validation('description', content);
+  }
+
   getName() {
     return this._content.name;
   }
@@ -51,7 +55,8 @@ class Kinopoisk {
       name: yup.string().min(1).max(300),
       year: yup.number().integer().min(1800).max(2030),
       countries: yup.array(),
-      genres: yup.array()
+      genres: yup.array(),
+      description: yup.string().min(10),
     };
     try {
       return schema[key].validateSync(content);
