@@ -32,6 +32,10 @@ describe('Set Content', () => {
     expect(kinopoisk._content.genres).toEqual(['drama', 'comedian']);
   })
 
+  test('_setDescription', () => {
+    kinopoisk._setDescription('Готэм, начало 1980-х годов.');
+    expect(kinopoisk._content.description).toEqual('Готэм, начало 1980-х годов.');
+  })
 });
 
 describe('Get Content', ()=> {
@@ -66,6 +70,11 @@ describe('Validation Failed:', () => {
   test('_setGenres validate failed', ()=> {
     expect(() => { kinopoisk._setGenres('')}).toThrow();
   })
+
+  test('_setDescription validate failed', ()=> {
+    expect(() => { kinopoisk._setDescription('test')}).toThrow();
+  })
+
 });
 
 
