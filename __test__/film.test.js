@@ -49,6 +49,10 @@ describe('Get Content', ()=> {
     kinopoisk._setYear(2010)
     expect(kinopoisk.getYear()).toEqual(2010);
   });
+  test('return description of film', () => {
+    kinopoisk._setDescription('Some description!')
+    expect(kinopoisk.getDescription()).toEqual('Some description!');
+  });
 });
 
 describe('Validation Failed:', () => {
