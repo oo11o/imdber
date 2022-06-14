@@ -36,6 +36,10 @@ class Kinopoisk {
     return this._content.year;
   }
 
+  getDescription() {
+    return this._content.description;
+  }
+
   _parse(html){
     const dom = new JSDOM(html);
     const scrapData = dom.window.document
