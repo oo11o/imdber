@@ -44,6 +44,10 @@ class Kinopoisk {
     return this._content.genres;
   }
 
+  getCountries() {
+    return this._content.countries;
+  }
+
   _parse(html){
     const dom = new JSDOM(html);
     const scrapData = dom.window.document
