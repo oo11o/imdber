@@ -45,14 +45,22 @@ describe('Get Content', ()=> {
     kinopoisk._setName('Please Don\'t Eat My Mother ++++ !');
     expect(kinopoisk.getName()).toEqual('Please Don\'t Eat My Mother ++++ !');
   });
+
   test('return year of film', () => {
     kinopoisk._setYear(2010)
     expect(kinopoisk.getYear()).toEqual(2010);
   });
+
   test('return description of film', () => {
     kinopoisk._setDescription('Some description!')
     expect(kinopoisk.getDescription()).toEqual('Some description!');
   });
+
+  test('return genres of film', () => {
+    kinopoisk._setGenres(['drama, horror'])
+    expect(kinopoisk.getGenres()).toEqual(['drama, horror']);
+  });
+
 });
 
 describe('Validation Failed:', () => {
