@@ -40,6 +40,10 @@ class Kinopoisk {
     return this._content.description;
   }
 
+  getGenres() {
+    return this._content.genres;
+  }
+
   _parse(html){
     const dom = new JSDOM(html);
     const scrapData = dom.window.document
