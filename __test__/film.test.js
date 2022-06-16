@@ -61,6 +61,11 @@ describe('Get Content', ()=> {
     expect(kinopoisk.getGenres()).toEqual(['drama, horror']);
   });
 
+  test('return film production country', () => {
+    kinopoisk._setCountries(['ukraine, japan'])
+    expect(kinopoisk.getCountries()).toEqual(['ukraine, japan']);
+  });
+
 });
 
 describe('Validation Failed:', () => {
