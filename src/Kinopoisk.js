@@ -1,8 +1,6 @@
 import * as yup from 'yup';
 import { JSDOM } from 'jsdom';
 
-import Parser from "./parser.js";
-
 class Kinopoisk {
   constructor() {
     this._content = {}
@@ -48,6 +46,10 @@ class Kinopoisk {
     return this._content.countries;
   }
 
+  getAll() {
+    return this._content;
+  }
+
   _parse(html){
     const dom = new JSDOM(html);
     const scrapData = dom.window.document
@@ -61,6 +63,7 @@ class Kinopoisk {
     this._setName(movie.name);
     this._setYear(movie.datePublished);
   }
+
 
   static validation(key, content) {
     const schema = {
