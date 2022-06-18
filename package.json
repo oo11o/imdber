@@ -1,7 +1,7 @@
 {
-  "name": "kinopoisk",
+  "name": "imdb",
   "version": "1.0.0",
-  "description": "Parse movie from kinopoisk",
+  "description": "Parse movie from imdb",
   "type": "module",
   "main": "index.js",
   "scripts": {
@@ -9,20 +9,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/oo11o/kinopoisk.git"
+    "url": "git+https://github.com/oo11o/imdb.git"
   },
   "keywords": [
     "parse",
-    "kinopoisk",
+    "imdm",
     "webscraping",
     "movies"
   ],
   "author": "Vlad Imir",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/oo11o/kinopoisk/issues"
+    "url": "https://github.com/oo11o/imdb/issues"
   },
-  "homepage": "https://github.com/oo11o/kinopoisk#readme",
+  "homepage": "https://github.com/oo11o/imdb#readme",
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.18.2",
     "eslint": "^8.16.0",
