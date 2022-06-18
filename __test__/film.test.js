@@ -66,6 +66,22 @@ describe('Get Content', ()=> {
     expect(kinopoisk.getCountries()).toEqual(['ukraine, japan']);
   });
 
+  test('return full information', () => {
+    kinopoisk._content = {
+      name: 'Joker',
+      year: 1955,
+      description: 'Description movie',
+      countries: ['denmark','poland', 'canada'],
+      genres: ['drama', 'fantasy']
+    }
+    expect(kinopoisk.getAll()).toEqual({
+        name: 'Joker',
+        year: 1955,
+        description: 'Description movie',
+        countries: ['denmark','poland', 'canada'],
+        genres: ['drama', 'fantasy']
+    });
+  });
 });
 
 describe('Validation Failed:', () => {
@@ -91,6 +107,7 @@ describe('Validation Failed:', () => {
   test('_setDescription validate failed', ()=> {
     expect(() => { kinopoisk._setDescription('test')}).toThrow();
   })
+
 
 });
 
