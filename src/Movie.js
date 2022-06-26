@@ -69,8 +69,8 @@ export default class{
     this._content.id = content;
   }
 
-  _setRaiting(content) {
-    this._content.raiting = content;
+  _setRating(content) {
+    this._content.rating = content;
   }
 
   _validation(key, content) {
