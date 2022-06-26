@@ -10,7 +10,7 @@ const getTitle = () => imdb.getTitle();
 
 const goto = async (id) => {
   await imdb.goto(id);
-}
+};
 
 export default {
   getAll,
@@ -18,5 +18,5 @@ export default {
   getDescription,
   getGenres,
   getTitle,
-  goto
+  goto,
 };
