@@ -1,28 +1,30 @@
 {
-  "name": "imdb",
-  "version": "1.0.0",
-  "description": "Parse movie from imdb",
+  "name": "imdber",
+  "version": "0.1.0",
+  "description": "Parse movie from Imdb",
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest"
+    "test": "npx jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/oo11o/imdb.git"
+    "url": "git+https://github.com/oo11o/imdber.git"
   },
   "keywords": [
     "parse",
-    "imdm",
+    "films",
+    "tv-shows",
+    "imdb",
     "webscraping",
     "movies"
   ],
-  "author": "Vlad Imir",
+  "author": "Volodymyr Yurchenko",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/oo11o/imdb/issues"
+    "url": "https://github.com/oo11o/imdber/issues"
   },
-  "homepage": "https://github.com/oo11o/imdb#readme",
+  "homepage": "https://github.com/oo11o/imdber#readme",
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.18.2",
     "eslint": "^8.16.0",
@@ -33,7 +35,6 @@
   "dependencies": {
     "axios": "^0.27.2",
     "jsdom": "^19.0.0",
-    "puppeteer": "^14.3.0",
     "yup": "^0.32.11"
   }
 }
