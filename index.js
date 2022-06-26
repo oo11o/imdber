@@ -1,16 +1,16 @@
-import Imdb from './src/Imdb';
+import Parse from './src/Parse.js';
 
-const imdb = new Imdb();
+const imdb = new Parse();
 
-const getAll = () => imdb.getGenres();
-
-const getCountries = () => imdb.getGenres();
-
-const getDescription = () => imdb.getGenres();
-
+const getAll = () => imdb.getAll();
+const getCountries = () => imdb.getCountries();
+const getDescription = () => imdb.getDescription();
 const getGenres = () => imdb.getGenres();
+const getTitle = () => imdb.getTitle();
 
-const getTitle = () => imdb.getGenres();
+const goto = async (id) => {
+  await imdb.goto(id);
+}
 
 export default {
   getAll,
@@ -18,4 +18,5 @@ export default {
   getDescription,
   getGenres,
   getTitle,
+  goto
 };
