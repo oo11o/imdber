@@ -1,4 +1,4 @@
-import Movie from '../src/Movie.js';
+import Movie from '../src/Movie';
 
 let movie;
 
@@ -45,7 +45,6 @@ describe('Get Content', () => {
   });
 });
 
-
 describe('Set Content', () => {
   test('_setTitle', () => {
     movie._setTitle('Очевидно');
@@ -61,12 +60,10 @@ describe('Set Content', () => {
     expect(movie._content.year).toEqual(2005);
   });
 
-
   test('_setImage', () => {
     movie._setImage('https://m.media-amazon.com/images/M/MV5BMTk4MDg3MTMyMl5BMl5BanBnXkFtZTcwNzgzNDQyNA@@._V1_FMjpg_UX670_.jpg');
     expect(movie._content.image).toEqual('https://m.media-amazon.com/images/M/MV5BMTk4MDg3MTMyMl5BMl5BanBnXkFtZTcwNzgzNDQyNA@@._V1_FMjpg_UX670_.jpg');
   });
-
 
   test('_setCountries', () => {
     movie._setCountries(['poland', 'ukraine']);
@@ -85,28 +82,27 @@ describe('Set Content', () => {
 
   test('_setActors', () => {
     movie._setActors([{
-          id: 'nm0000150',
-          actor: 'Michael J. Fox',
-          characters: 'Marty McFly'
-        },
-        {
-          id: 'nm0000502',
-          actor: 'Christopher Lloyd',
-          characters: 'Dr. Emmett Brown'
-        }]);
+      id: 'nm0000150',
+      actor: 'Michael J. Fox',
+      characters: 'Marty McFly',
+    },
+    {
+      id: 'nm0000502',
+      actor: 'Christopher Lloyd',
+      characters: 'Dr. Emmett Brown',
+    }]);
 
     expect(movie._content.actors).toEqual([{
       id: 'nm0000150',
       actor: 'Michael J. Fox',
-      characters: 'Marty McFly'
+      characters: 'Marty McFly',
     },
-      {
-        id: 'nm0000502',
-        actor: 'Christopher Lloyd',
-        characters: 'Dr. Emmett Brown'
-      }]);
+    {
+      id: 'nm0000502',
+      actor: 'Christopher Lloyd',
+      characters: 'Dr. Emmett Brown',
+    }]);
   });
-
 
   test('_setDescription', () => {
     movie._setDescription('A human soldier is sent from 2029 to 1984 to stop an almost indestructible cyborg killing machine, sent from the same year');
@@ -114,13 +110,13 @@ describe('Set Content', () => {
   });
 
   test('_setSimilars', () => {
-    movie._setSimilars( [
+    movie._setSimilars([
       {
         id: 'tt0096874',
         title: 'Back to the Future Part II',
         type: 'movie',
         rating: 7.8,
-        runtime: 6480
+        runtime: 6480,
       },
 
       {
@@ -128,25 +124,24 @@ describe('Set Content', () => {
         title: 'The Matrix',
         type: 'movie',
         rating: 8.7,
-        runtime: 8160
+        runtime: 8160,
       }]);
 
-    expect(movie._content.similars).toMatchObject( [
+    expect(movie._content.similars).toMatchObject([
       {
         id: 'tt0096874',
         title: 'Back to the Future Part II',
         type: 'movie',
         rating: 7.8,
-        runtime: 6480
+        runtime: 6480,
       },
       {
         id: 'tt0133093',
         title: 'The Matrix',
         type: 'movie',
         rating: 8.7,
-        runtime: 8160
-      }]
-    );
+        runtime: 8160,
+      }]);
   });
 
   test('_setTime', () => {
@@ -158,9 +153,4 @@ describe('Set Content', () => {
     movie._setRating({ imdb: 8.5, vote: 1168243, metacritic: 87 });
     expect(movie._content.rating).toEqual({ imdb: 8.5, vote: 1168243, metacritic: 87 });
   });
-
 });
-
-
-
-

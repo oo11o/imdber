@@ -1,8 +1,8 @@
-import * as yup from "yup";
+import * as yup from 'yup';
 
-export default class{
+export default class {
   constructor() {
-    this._content = {}
+    this._content = {};
   }
 
   getTitle() {
@@ -76,13 +76,14 @@ export default class{
   _validation(key, content) {
     const schema = {
       title: yup.string().min(1).max(300),
-      year: yup.number().integer().min(1800).max(2030).required(),
+      year: yup.number().integer().min(1800).max(2030)
+        .required(),
       countries: yup.array(),
       genres: yup.array(),
       description: yup.string().min(10),
       image: yup.string().min(10),
       actors: yup.array(),
-      similars: yup.array()
+      similars: yup.array(),
     };
     try {
       return schema[key].validateSync(content);
@@ -90,5 +91,4 @@ export default class{
       throw new Error(`Validation failed: ${e.message}`);
     }
   }
-
 }

@@ -1,21 +1,15 @@
 import { JSDOM } from 'jsdom';
-import fs from 'fs/promises';
 import getHtml from './gethtml.js';
 import Movie from './Movie.js';
 
 export default class extends Movie {
-  async fileRead() {
-    // https://www.imdb.com/title/tt0088247
-  }
-
-  checkUrl(url){
+  checkUrl(url) {
     return url.indexOf('https') > -1 ? url.split('?')[0] : `https://www.imdb.com/title/${url}/`;
   }
 
   async goto(url) {
-    const { data, status } = await getHtml(this.checkUrl(url));
+    const { data } = await getHtml(this.checkUrl(url));
     const html = data;
-    // const html = await fs.readFile('./__test__/__fixtures__/movie.html', 'utf-8');
     const dom = new JSDOM(html);
 
     const scriptData = JSON.parse(dom.window.document
@@ -25,9 +19,6 @@ export default class extends Movie {
     // short names for object chain access
     const jsonAbove = scriptData.props.pageProps.aboveTheFoldData;
     const jsonMain = scriptData.props.pageProps.mainColumnData;
-
-    // const sertificate = jsonAbove.certificate.rating;
-    // const type = jsonAbove.titleType.id;
 
     this._setId(jsonAbove.id);
     this._setTitle(jsonAbove.originalTitleText.text);
