@@ -12,11 +12,9 @@ Browser environment doesn't support (Temporarily)
 
 ## Import
 ```
-    # if you use ES
-    imoprt Imdeber from 'imdber'
+    #use ES module
+    imoprt imdb  from 'imdber'
     
-    # if you use CommonJS
-    const Imdeber = require('imdeber) 
 ```
 ## Usage
 ```
@@ -25,6 +23,7 @@ Browser environment doesn't support (Temporarily)
     async function start(url){
         await imdb.goto(url);
         const data = imdb.getAll();
+        console.log(data)
     }
 
     start('tt0088763'); 
