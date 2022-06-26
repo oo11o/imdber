@@ -1,4 +1,4 @@
-import IMDb from '../src/Imdb';
+import IMDb from '../src/Movie.js';
 
 let imdb;
 
