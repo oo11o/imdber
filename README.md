@@ -13,10 +13,10 @@ Browser environment doesn't support (Temporarily)
 ## Import
 ```
     # if you use ES
-    imoprt Imdeber from 'imdber'
+    imoprt imdb from 'imdber'
     
     # if you use CommonJS
-    const Imdeber = require('imdeber) 
+    const imdb = require('imdeber) 
 ```
 ## Usage
 ```
