@@ -1,13 +1,21 @@
 import { JSDOM } from 'jsdom';
 import fs from 'fs/promises';
-import getHtml from './lib/gethtml';
-import Movie from './Movie';
+import getHtml from './gethtml.js';
+import Movie from './Movie.js';
 
 export default class extends Movie {
-  async parse(url) {
-    // const {data, status} = await getHtml('https://www.imdb.com/title/tt0088247');
-    // const html = data;
-    const html = await fs.readFile('./__test__/__fixtures__/movie.html', 'utf-8');
+  async fileRead() {
+    // https://www.imdb.com/title/tt0088247
+  }
+
+  checkUrl(url){
+    return url.indexOf('https') > -1 ? url.split('?')[0] : `https://www.imdb.com/title/${url}/`;
+  }
+
+  async goto(url) {
+    const { data, status } = await getHtml(this.checkUrl(url));
+    const html = data;
+    // const html = await fs.readFile('./__test__/__fixtures__/movie.html', 'utf-8');
     const dom = new JSDOM(html);
 
     const scriptData = JSON.parse(dom.window.document
@@ -25,12 +33,12 @@ export default class extends Movie {
     this._setTitle(jsonAbove.originalTitleText.text);
     this._setDescription(jsonAbove.plot.plotText.plainText);
     this._setYear(jsonAbove.releaseYear.year);
-    this._setImage(jsonAbove.primaryImage.url);
+    this._setImage(jsonAbove.primaryImage?.url);
     this._setTime(jsonAbove.runtime.seconds);
-    this._setRaiting({
+    this._setRating({
       imdb: jsonAbove.ratingsSummary.aggregateRating,
       vote: jsonAbove.ratingsSummary.voteCount,
-      metacritic: jsonAbove.metacritic.metascore.score,
+      metacritic: jsonAbove.metacritic?.metascore.score,
     });
 
     this._setGenres((() => (jsonAbove.genres.genres).map((item) => item.text))());
