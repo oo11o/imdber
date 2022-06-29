@@ -1,3 +1,4 @@
+
 # Imdeber
 
 Imdber is util for web scraping movie information from IMDb.
@@ -105,6 +106,13 @@ Browser environment doesn't support (Temporarily)
 
 ```
 
-.getTitle()
+```
+imdb.getTitle()  - string | return title of movie
 
+imdb.getYear() - string |return year of movie
 
+imdb.getDescription() - string | return description of movie
+
+imdb.getGenres() - array | return genres of movie 
+
+```
