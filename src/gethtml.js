@@ -1,10 +1,8 @@
-import axios from 'axios';
+const axios = require('axios');
 
-export default async (url) => {
-  return await axios.get(url)
-    .then((response) => ({
-      status: response.status,
-      data: response.data,
-    }))
-    .catch((error) => `Axios ${error}`);
-};
+module.exports = async (url) => axios.get(url)
+  .then((response) => ({
+    status: response.status,
+    data: response.data,
+  }))
+  .catch((error) => `Axios ${error}`);

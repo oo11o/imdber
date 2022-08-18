@@ -2,7 +2,6 @@
   "name": "imdber",
   "version": "0.1.2",
   "description": "Parse movie from Imdb",
-  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "npx jest"
@@ -34,6 +33,7 @@
   },
   "dependencies": {
     "axios": "^0.27.2",
+    "imdber": "^0.1.2",
     "jsdom": "^19.0.0",
     "yup": "^0.32.11"
   }

@@ -1,22 +1,21 @@
-import { JSDOM } from 'jsdom';
-import getHtml from './gethtml.js';
-import Movie from './Movie.js';
+const { JSDOM } = require('jsdom');
+const getHtml = require('./gethtml');
+const Movie = require('./Movie');
 
-export default class extends Movie {
-  checkUrl(url) {
+module.exports = class Parse extends Movie {
+  static checkUrl(url) {
     return url.indexOf('https') > -1 ? url.split('?')[0] : `https://www.imdb.com/title/${url}/`;
   }
 
   async goto(url) {
-    const { data } = await getHtml(this.checkUrl(url));
-    const html = data;
-    const dom = new JSDOM(html);
+    const { data } = await getHtml(Parse.checkUrl(url));
+    if (data === undefined) { return; }
 
-    const scriptData = JSON.parse(dom.window.document
-      ?.querySelector('#__NEXT_DATA__')
-      .innerHTML);
+    const dom = new JSDOM(data);
 
-    // short names for object chain access
+    const scriptData = JSON.parse(dom.window
+      .document?.querySelector('#__NEXT_DATA__').innerHTML);
+
     const jsonAbove = scriptData.props.pageProps.aboveTheFoldData;
     const jsonMain = scriptData.props.pageProps.mainColumnData;
 
@@ -53,4 +52,4 @@ export default class extends Movie {
       runtime: item.node.runtime.seconds,
     })))());
   }
-}
+};

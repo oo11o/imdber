@@ -1,4 +1,4 @@
-import Parse from './src/Parse.js';
+const Parse = require('./src/Parse');
 
 const imdb = new Parse();
 
@@ -12,7 +12,7 @@ const goto = async (id) => {
   await imdb.goto(id);
 };
 
-export default {
+module.exports = {
   getAll,
   getCountries,
   getDescription,
