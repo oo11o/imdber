@@ -27,7 +27,7 @@ Node environment.
     }
 
     start('tt0088763'); 
-    l
+
 ```
 
 ##### imdb.getAll()
