@@ -1,36 +1,33 @@
 
-# Imdeber
+# Imdber
 
 Imdber is util for web scraping movie information from IMDb.
 Node environment. 
 
-Browser environment doesn't support (Temporarily)
 
 ## Install
 ```
     npm install imdber
 ```
 
-## Import
+## Import or Require
 ```
-    #use ES module
-    imoprt imdb  from 'imdber'
+    # ES module (import)
+    import imdb  from 'imdber'
+    
+    # CommonJS (require)
+    const imdb = require ('imdber)
     
 ```
 ## Usage
 ```
-    import imdb from 'imdber'  
-
     async function start(url){
         await imdb.goto(url);
-        const data = imdb.getAll();
-        console.log(data)
+        console(imdb.getAll());
     }
 
     start('tt0088763'); 
-    
-    // or start ('https://www.imdb.com/title/tt0088763/')
-    // support id and url
+    l
 ```
 
 ##### imdb.getAll()
