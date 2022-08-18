@@ -1,6 +1,6 @@
 {
   "name": "imdber",
-  "version": "0.2",
+  "version": "0.2.0",
   "description": "Parse movie from Imdb",
   "main": "index.js",
   "scripts": {
