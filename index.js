@@ -7,6 +7,7 @@ const getCountries = () => imdb.getCountries();
 const getDescription = () => imdb.getDescription();
 const getGenres = () => imdb.getGenres();
 const getTitle = () => imdb.getTitle();
+const getYear = () => imdb.getYear();
 
 const goto = async (id) => {
   await imdb.goto(id);
@@ -17,6 +18,7 @@ module.exports = {
   getCountries,
   getDescription,
   getGenres,
+  getYear,
   getTitle,
   goto,
 };
