@@ -49,7 +49,7 @@ module.exports = class Parse extends Movie {
       title: item.node.originalTitleText.text,
       type: item.node.titleType.id,
       raiting: item.node.ratingsSummary.aggregateRating,
-      runtime: item.node.runtime.seconds,
+      runtime: item.node.runtime?.seconds,
     })))());
   }
 };
